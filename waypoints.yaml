@@ -1,0 +1,35 @@
+# Walking-test waypoints — 4 corners of the user's block.
+#
+# Source: 4 DMS coordinates from Google Maps, converted to decimal degrees.
+# Order walks the block clockwise:
+#   P1 (SW) -> P2 (SE)  long edge along south street  (~106 m east-ish)
+#   P2 (SE) -> P3 (NE)  short edge, cross the road     (~18  m north)
+#   P3 (NE) -> P4 (NW)  long edge along north street  (~103 m west-ish)
+#   P4 (NW) -> P1 (SW)  short edge, cross the road     (~16  m south)
+# Total loop ~243 m.
+
+# Distance (m) within which we consider the waypoint "reached".
+# Set conservatively given the M9N's ~2.5 m CEP + your closure error of 3.4 m
+# on the test walk. 5 m is the smallest value that won't ping-pong on the
+# short cross-road edges (which are only 16-18 m long).
+arrival_radius_m: 5.0
+
+# Seconds to show the "ARRIVED -> face <next dir>" splash before advancing.
+arrival_dwell_seconds: 4.0
+
+# Loop back to the first waypoint after the last one (true) or stop (false).
+loop: false
+
+waypoints:
+  - name: "P1 SW corner"
+    lat: -37.791083
+    lon: 144.970250
+  - name: "P2 SE corner"
+    lat: -37.791222
+    lon: 144.971444
+  - name: "P3 NE corner"
+    lat: -37.791056
+    lon: 144.971444
+  - name: "P4 NW corner"
+    lat: -37.790944
+    lon: 144.970278
